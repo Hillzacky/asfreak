@@ -22,7 +22,7 @@ echo -e " ${MB}[0]${NC} ${YB}Kembali ke Menu${NC}"
 echo -e ""
 echo -e "${BB}———————————————————————————————————————————————————————${NC}"
 echo -e ""
-read -p " Select menu :  "  opt
+read -p " Pilih menu :  "  opt
 echo -e ""
 case $opt in
 1) clear ; add-xray ; exit ;;
@@ -32,5 +32,5 @@ case $opt in
 5) clear ; cek-xray ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
-*) echo -e "${YB}Wrong input${NC}" ; sleep 1 ; allxray ;;
+*) echo -e "${YB}Kesalahan Penginputan${NC}" ; sleep 1 ; allxray ;;
 esac

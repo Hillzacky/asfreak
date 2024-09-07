@@ -14,7 +14,7 @@ clear
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
 echo -e "               ${WB}Log Shadowsocks Account${NC}              "
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
-echo -e "  ${YB}You have no existing clients!${NC}"
+echo -e "  ${YB}Anda belum membuat akun klien!${NC}"
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
 echo ""
 read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"

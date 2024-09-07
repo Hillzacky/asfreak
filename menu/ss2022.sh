@@ -18,11 +18,11 @@ echo -e " ${MB}[3]${NC} ${YB}Extend Account Shadowsocks 2022${NC} "
 echo -e " ${MB}[4]${NC} ${YB}Delete Account Shadowsocks 2022${NC} "
 echo -e " ${MB}[5]${NC} ${YB}Check User Login${NC} "
 echo -e ""
-echo -e " ${MB}[0]${NC} ${YB}Back To Menu${NC}"
+echo -e " ${MB}[0]${NC} ${YB}Kembali Ke Menu${NC}"
 echo -e ""
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e ""
-read -p " Select menu :  "  opt
+read -p " Pilih menu :  "  opt
 echo -e ""
 case $opt in
 1) clear ; add-ss2022 ; exit ;;
@@ -32,5 +32,5 @@ case $opt in
 5) clear ; cek-ss2022 ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
-*) echo -e "${YB}Wrong input${NC} " ; sleep 1 ; ss2022 ;;
+*) echo -e "${YB}Kesalahan Penginputan${NC} " ; sleep 1 ; ss2022 ;;
 esac
