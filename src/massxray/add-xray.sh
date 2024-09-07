@@ -139,9 +139,9 @@ ss2022link2="ss://${ss2022_base64}@$domain:80/?path=%2Fss2022&security=none&host
 ss2022link3="ss://${ss2022_base64}@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=ss2022-grpc&sni=$domain#${user}"
 rm -rf /tmp/log
 
-cat > /var/www/html/allxray/allxray-$user.txt << END
+cat > /var/www/html/massxray/massxray-$user.txt << END
 ========================================
-        ----- [ All Xray ] -----
+        ----- [ Mass Xray ] -----
 ========================================
 Domain      : $domain
 ISP         : $ISP
@@ -208,79 +208,79 @@ Link gRPC  : $ss2022link3
 END
 systemctl restart xray
 clear
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "              ----- [ All Xray ] -----              " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Domain       : $domain" | tee -a /user/log-allxray-$user.txt
-echo -e "ISP          : $ISP" | tee -a /user/log-allxray-$user.txt
-echo -e "City         : $CITY" | tee -a /user/log-allxray-$user.txt
-echo -e "Port TLS     : 443" | tee -a /user/log-allxray-$user.txt
-echo -e "Port NTLS    : 80" | tee -a /user/log-allxray-$user.txt
-echo -e "Port gRPC    : 443" | tee -a /user/log-allxray-$user.txt
-echo -e "Network      : TCP, Websocket, gRPC" | tee -a /user/log-allxray-$user.txt
-echo -e "Alpn         : h2, http/1.1" | tee -a /user/log-allxray-$user.txt
-echo -e "Expired On   : $exp" | tee -a /user/log-allxray-$user.txt
-echo -e "Link Akun    : https://$domain/allxray/allxray-$user.txt" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "             ----- [ Vmess Link ] -----             " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link TLS   : $vmesslink1" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link NTLS  : $vmesslink2" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link gRPC  : $vmesslink3" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "             ----- [ Vless Link ] -----             " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link TLS   : $vlesslink1" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link NTLS  : $vlesslink2" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link gRPC  : $vlesslink3" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link XTLS  : $vlesslink4" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "            ----- [ Trojan Link ] -----             " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link TLS   : $trojanlink1" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link NTLS  : $trojanlink2" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link gRPC  : $trojanlink3" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link TCP   : $trojanlink4" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "           ----- [ Shadowsocks Link ] -----         " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link TLS   : $shadowsockslink1" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link NTLS  : $shadowsockslink2" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link gRPC  : $shadowsockslink3" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "        ----- [ Shadowsocks 2022 Link ] -----       " | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link TLS   : $ss2022link1" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link NTLS  : $ss2022link2" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e "Link gRPC  : $ss2022link3" | tee -a /user/log-allxray-$user.txt
-echo -e "————————————————————————————————————————————————————" | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
-echo -e " " | tee -a /user/log-allxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "              ----- [ Mass Xray ] -----             " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Domain       : $domain" | tee -a /user/log-massxray-$user.txt
+echo -e "ISP          : $ISP" | tee -a /user/log-massxray-$user.txt
+echo -e "City         : $CITY" | tee -a /user/log-massxray-$user.txt
+echo -e "Port TLS     : 443" | tee -a /user/log-massxray-$user.txt
+echo -e "Port NTLS    : 80" | tee -a /user/log-massxray-$user.txt
+echo -e "Port gRPC    : 443" | tee -a /user/log-massxray-$user.txt
+echo -e "Network      : TCP, Websocket, gRPC" | tee -a /user/log-massxray-$user.txt
+echo -e "Alpn         : h2, http/1.1" | tee -a /user/log-massxray-$user.txt
+echo -e "Expired On   : $exp" | tee -a /user/log-massxray-$user.txt
+echo -e "Link Akun    : https://$domain/massxray/massxray-$user.txt" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "             ----- [ Vmess Link ] -----             " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link TLS   : $vmesslink1" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link NTLS  : $vmesslink2" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link gRPC  : $vmesslink3" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "             ----- [ Vless Link ] -----             " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link TLS   : $vlesslink1" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link NTLS  : $vlesslink2" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link gRPC  : $vlesslink3" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link XTLS  : $vlesslink4" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "            ----- [ Trojan Link ] -----             " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link TLS   : $trojanlink1" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link NTLS  : $trojanlink2" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link gRPC  : $trojanlink3" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link TCP   : $trojanlink4" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "           ----- [ Shadowsocks Link ] -----         " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link TLS   : $shadowsockslink1" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link NTLS  : $shadowsockslink2" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link gRPC  : $shadowsockslink3" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "        ----- [ Shadowsocks 2022 Link ] -----       " | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link TLS   : $ss2022link1" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link NTLS  : $ss2022link2" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e "Link gRPC  : $ss2022link3" | tee -a /user/log-massxray-$user.txt
+echo -e "————————————————————————————————————————————————————" | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
+echo -e " " | tee -a /user/log-massxray-$user.txt
 read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 clear
-allxray
+massxray
