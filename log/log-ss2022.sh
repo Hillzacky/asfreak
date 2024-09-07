@@ -17,7 +17,7 @@ echo -e "${BB}——————————————————————
 echo -e "  ${YB}You have no existing clients!${NC}"
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
 echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 log-create
 fi
 clear
@@ -28,15 +28,15 @@ echo -e " ${YB}User  Expired${NC}  "
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
 grep -E "^#% " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq
 echo ""
-echo -e "${YB}tap enter to go back${NC}"
+echo -e "${YB}Tekan enter untuk kembali${NC}"
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
-read -rp "Input Username : " user
+read -rp "Masukkan Namapengguna : " user
 if [ -z $user ]; then
 log-create
 else
 clear
 echo -e "`cat "/user/log-ss2022-$user.txt"`"
 echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 log-create
 fi

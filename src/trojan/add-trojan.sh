@@ -22,7 +22,7 @@ echo -e "                  ${WB}Add Trojan Account${NC}                "
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 add-trojan
 fi
 done
@@ -36,10 +36,10 @@ sed -i '/#trojan-tcp$/a\#& '"$user $exp"'\
 },{"password": "'""$pwtr""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#trojan-grpc$/a\#& '"$user $exp"'\
 },{"password": "'""$pwtr""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
-trojanlink1="trojan://$pwtr@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
-trojanlink2="trojan://${pwtr}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
-trojanlink3="trojan://${pwtr}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
-trojanlink4="trojan://${pwtr}@$domain:443?security=tls&type=tcp&sni=$domain#$user"
+trojanlink1="trojan://$pwtr@$domain:443/?path=%2Ftrojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
+trojanlink2="trojan://${pwtr}@$domain:80/?path=%2Ftrojan&security=none&host=$domain&type=ws#$user"
+trojanlink3="trojan://${pwtr}@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
+trojanlink4="trojan://${pwtr}@$domain:443/?security=tls&type=tcp&sni=$domain#$user"
 cat > /var/www/html/trojan/trojan-$user.txt << END
 ==========================
     Trojan WS (CDN) TLS
@@ -85,13 +85,13 @@ cat > /var/www/html/trojan/trojan-$user.txt << END
 ==========================
     Link Trojan Account
 ==========================
-Link TLS  : trojan://$pwtr@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user
+Link TLS  : trojan://$pwtr@$domain:443/?path=%2Ftrojan&security=tls&host=$domain&type=ws&sni=$domain#$user
 ==========================
-Link NTLS : trojan://${pwtr}@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user
+Link NTLS : trojan://${pwtr}@$domain:80/?path=%2Ftrojan&security=none&host=$domain&type=ws#$user
 ==========================
-Link gRPC : trojan://${pwtr}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user
+Link gRPC : trojan://${pwtr}@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user
 ==========================
-Link TCP : trojan://${pwtr}@$domain:443?security=tls&type=tcp&sni=$domain#$user
+Link TCP : trojan://${pwtr}@$domain:443/?security=tls&type=tcp&sni=$domain#$user
 ==========================
 END
 ISP=$(cat /usr/local/etc/xray/org)
@@ -129,6 +129,6 @@ echo -e "———————————————————————�
 echo " " | tee -a /user/log-trojan-$user.txt
 echo " " | tee -a /user/log-trojan-$user.txt
 echo " " | tee -a /user/log-trojan-$user.txt
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 clear
 trojan

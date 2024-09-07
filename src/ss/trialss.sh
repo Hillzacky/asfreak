@@ -13,9 +13,9 @@ sed -i '/#ss-grpc$/a\#! '"$user $exp"'\
 },{"password": "'""$pwss""'","method": "'""$cipher""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 echo -n "$cipher:$pwss" | base64 -w 0 > /tmp/log
 ss_base64=$(cat /tmp/log)
-shadowsockslink1="ss://${ss_base64}@$domain:443?path=/ss&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-shadowsockslink2="ss://${ss_base64}@$domain:80?path=/ss&security=none&host=${domain}&type=ws#${user}"
-shadowsockslink3="ss://${ss_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=ss-grpc&sni=$domain#${user}"
+shadowsockslink1="ss://${ss_base64}@$domain:443/?path=%2Fss&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+shadowsockslink2="ss://${ss_base64}@$domain:80/?path=%2Fss&security=none&host=${domain}&type=ws#${user}"
+shadowsockslink3="ss://${ss_base64}@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=ss-grpc&sni=$domain#${user}"
 rm -rf /tmp/log
 cat > /var/www/html/ss/ss-$user.txt << END
 ==========================
@@ -96,6 +96,6 @@ echo -e "———————————————————————�
 echo " " | tee -a /user/log-ss-$user.txt
 echo " " | tee -a /user/log-ss-$user.txt
 echo " " | tee -a /user/log-ss-$user.txt
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 clear
 shadowsocks

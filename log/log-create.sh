@@ -23,7 +23,7 @@ echo -e " ${MB}[0]${NC} ${YB}Kembali ke Menu${NC}"
 echo -e ""
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
 echo -e ""
-read -p " Select menu :  "  opt
+read -p " Pilih menu :  "  opt
 echo -e ""
 case $opt in
 1) clear ; log-vmess ; exit ;;

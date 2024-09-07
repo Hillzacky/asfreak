@@ -13,9 +13,9 @@ sed -i '/#ss2022-grpc$/a\#% '"$user $exp"'\
 },{"password": "'""$userpsk""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 echo -n "$cipher2:$serverpsk:$userpsk" | base64 -w 0 > /tmp/log
 ss2022_base64=$(cat /tmp/log)
-ss2022link1="ss://${ss2022_base64}@$domain:443?path=/ss2022&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-ss2022link2="ss://${ss2022_base64}@$domain:80?path=/ss2022&security=none&host=${domain}&type=ws#${user}"
-ss2022link3="ss://${ss2022_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=ss2022-grpc&sni=$domain#${user}"
+ss2022link1="ss://${ss2022_base64}@$domain:443/?path=%2Fss2022&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+ss2022link2="ss://${ss2022_base64}@$domain:80/?path=%2Fss2022&security=none&host=${domain}&type=ws#${user}"
+ss2022link3="ss://${ss2022_base64}@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=ss2022-grpc&sni=$domain#${user}"
 rm -rf /tmp/log
 cat > /var/www/html/ss2022/ss2022-$user.txt << END
 ===============================
@@ -96,6 +96,6 @@ echo -e "———————————————————————�
 echo " " | tee -a /user/log-ss2022-$user.txt
 echo " " | tee -a /user/log-ss2022-$user.txt
 echo " " | tee -a /user/log-ss2022-$user.txt
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 clear
 ss2022

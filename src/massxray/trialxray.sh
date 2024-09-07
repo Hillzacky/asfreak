@@ -87,28 +87,28 @@ vmesslink1="vmess://$(echo $vmlink1 | base64 -w 0)"
 vmesslink2="vmess://$(echo $vmlink2 | base64 -w 0)"
 vmesslink3="vmess://$(echo $vmlink3 | base64 -w 0)"
 
-vlesslink1="vless://$uuid@$domain:443?path=/vless&security=tls&encryption=none&host=$domain&type=ws&sni=$domain#$user"
-vlesslink2="vless://$uuid@$domain:80?path=/vless&security=none&encryption=none&host=$domain&type=ws#$user"
-vlesslink3="vless://$uuid@$domain:443?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user"
-vlesslink4="vless://$uuid@$domain:443?security=tls&encryption=none&headerType=none&type=tcp&sni=$domain&flow=xtls-rprx-vision&fp=chrome#$user"
+vlesslink1="vless://$uuid@$domain:443/?path=%2Fvless&security=tls&encryption=none&host=$domain&type=ws&sni=$domain#$user"
+vlesslink2="vless://$uuid@$domain:80/?path=%2Fvless&security=none&encryption=none&host=$domain&type=ws#$user"
+vlesslink3="vless://$uuid@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user"
+vlesslink4="vless://$uuid@$domain:443/?security=tls&encryption=none&headerType=none&type=tcp&sni=$domain&flow=xtls-rprx-vision&fp=chrome#$user"
 
-trojanlink1="trojan://$pwtr@$domain:443?path=/trojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
-trojanlink2="trojan://$pwtr@$domain:80?path=/trojan&security=none&host=$domain&type=ws#$user"
-trojanlink3="trojan://$pwtr@$domain:443?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
-trojanlink4="trojan://$pwtr@$domain:443?security=tls&type=tcp&sni=$domain#$user"
+trojanlink1="trojan://$pwtr@$domain:443/?path=%2Ftrojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
+trojanlink2="trojan://$pwtr@$domain:80/?path=%2Ftrojan&security=none&host=$domain&type=ws#$user"
+trojanlink3="trojan://$pwtr@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=trojan-grpc&sni=$domain#$user"
+trojanlink4="trojan://$pwtr@$domain:443/?security=tls&type=tcp&sni=$domain#$user"
 
 echo -n "$cipher:$pwss" | base64 -w 0 > /tmp/log
 ss_base64=$(cat /tmp/log)
-shadowsockslink1="ss://${ss_base64}@$domain:443?path=/ss&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-shadowsockslink2="ss://${ss_base64}@$domain:80?path=/ss&security=none&host=${domain}&type=ws#${user}"
-shadowsockslink3="ss://${ss_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=ss-grpc&sni=$domain#${user}"
+shadowsockslink1="ss://${ss_base64}@$domain:443/?path=%2Fss&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+shadowsockslink2="ss://${ss_base64}@$domain:80/?path=%2Fss&security=none&host=${domain}&type=ws#${user}"
+shadowsockslink3="ss://${ss_base64}@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=ss-grpc&sni=$domain#${user}"
 rm -rf /tmp/log
 
 echo -n "$cipher2:$serverpsk:$userpsk" | base64 -w 0 > /tmp/log
 ss2022_base64=$(cat /tmp/log)
-ss2022link1="ss://${ss2022_base64}@$domain:443?path=/ss2022&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-ss2022link2="ss://${ss2022_base64}@$domain:80?path=/ss2022&security=none&host=${domain}&type=ws#${user}"
-ss2022link3="ss://${ss2022_base64}@$domain:443?security=tls&encryption=none&type=grpc&serviceName=ss2022-grpc&sni=$domain#${user}"
+ss2022link1="ss://${ss2022_base64}@$domain:443/?path=%2Fss2022&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+ss2022link2="ss://${ss2022_base64}@$domain:80/?path=%2Fss2022&security=none&host=${domain}&type=ws#${user}"
+ss2022link3="ss://${ss2022_base64}@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=ss2022-grpc&sni=$domain#${user}"
 rm -rf /tmp/log
 
 cat > /var/www/html/allxray/allxray-$user.txt << END
@@ -253,6 +253,6 @@ echo -e "———————————————————————�
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
 echo -e " " | tee -a /user/log-allxray-$user.txt
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 clear
 allxray

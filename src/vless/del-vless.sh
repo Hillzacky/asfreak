@@ -15,7 +15,7 @@ echo -e "                 ${WB}Delete Vless Account${NC}               "
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
 echo -e "  ${YB}You have no existing clients!${NC}"
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 vless
 fi
 clear
@@ -45,7 +45,7 @@ echo -e " ${YB}Client Name :${NC} $user"
 echo -e " ${YB}Expired On  :${NC} $exp"
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
 echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 clear
 vless
 fi

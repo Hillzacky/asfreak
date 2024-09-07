@@ -22,7 +22,7 @@ echo -e "                  Add Vless Account                 "
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
 echo -e "${YB}A client with the specified name was already created, please choose another name.${NC}"
 echo -e "${BB}————————————————————————————————————————————————————${NC}"
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 add-vless
 fi
 done
@@ -37,10 +37,10 @@ sed -i '/#vless-grpc$/a\#= '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#vless-xtls$/a\#&@ '"$user $exp"'\
 },{"flow": "'""xtls-rprx-vision""'","id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
-vlesslink1="vless://$uuid@$domain:443?path=/vless&security=tls&encryption=none&host=$domain&type=ws&sni=$domain#$user"
-vlesslink2="vless://$uuid@$domain:80?path=/vless&security=none&encryption=none&host=$domain&type=ws#$user"
-vlesslink3="vless://$uuid@$domain:443?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user"
-vlesslink4="vless://$uuid@$domain:443?security=tls&encryption=none&headerType=none&type=tcp&sni=$domain&flow=xtls-rprx-vision&fp=chrome#$user"
+vlesslink1="vless://$uuid@$domain:443/?path=%2Fvless&security=tls&encryption=none&host=$domain&type=ws&sni=$domain#$user"
+vlesslink2="vless://$uuid@$domain:80/?path=%2Fvless&security=none&encryption=none&host=$domain&type=ws#$user"
+vlesslink3="vless://$uuid@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user"
+vlesslink4="vless://$uuid@$domain:443/?security=tls&encryption=none&headerType=none&type=tcp&sni=$domain&flow=xtls-rprx-vision&fp=chrome#$user"
 cat > /var/www/html/vless/vless-$user.txt << END
 ==========================
     Vless WS (CDN) TLS
@@ -112,13 +112,13 @@ cat > /var/www/html/vless/vless-$user.txt << END
 ==========================
     Link Vless Account
 ==========================
-Link TLS  : vless://$uuid@$domain:443?path=/vless&security=tls&encryption=none&host=$domain&type=ws&sni=$domain#$user
+Link TLS  : vless://$uuid@$domain:443/?path=%2Fvless&security=tls&encryption=none&host=$domain&type=ws&sni=$domain#$user
 ==========================
-Link NTLS : vless://$uuid@$domain:80?path=/vless&security=none&encryption=none&host=$domain&type=ws#$user
+Link NTLS : vless://$uuid@$domain:80/?path=%2Fvless&security=none&encryption=none&host=$domain&type=ws#$user
 ==========================
-Link gRPC : vless://$uuid@$domain:443?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user
+Link gRPC : vless://$uuid@$domain:443/?security=tls&encryption=none&type=grpc&serviceName=vless-grpc&sni=$domain#$user
 ==========================
-Link XTLS : vless://$uuid@$domain:443?security=tls&encryption=none&headerType=none&type=tcp&sni=$domain&flow=xtls-rprx-vision&fp=chrome#$user
+Link XTLS : vless://$uuid@$domain:443/?security=tls&encryption=none&headerType=none&type=tcp&sni=$domain&flow=xtls-rprx-vision&fp=chrome#$user
 ==========================
 END
 ISP=$(cat /usr/local/etc/xray/org)
@@ -158,6 +158,6 @@ echo -e "${BB}——————————————————————
 echo " " | tee -a /user/log-vless-$user.txt
 echo " " | tee -a /user/log-vless-$user.txt
 echo " " | tee -a /user/log-vless-$user.txt
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 clear
 vless

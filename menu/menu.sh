@@ -33,7 +33,7 @@ DATE=$(date -R | cut -d " " -f -4)
 MYIP=$(curl -sS ipv4.icanhazip.com)
 clear
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "               ${WB}----- [ Welcome Back ] -----${NC}              "
+echo -e "         ${WB}----- [ Selamat datang kembali ] -----${NC}         "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e " ${YB}Service Provider${NC} ${WB}: $ISP"
 echo -e " ${YB}Timezone${NC}         ${WB}: $WKT${NC}"
@@ -58,7 +58,7 @@ echo -e " ${MB}[2]${NC} ${YB}Vless Menu${NC}          ${MB}[6]${NC} ${YB}All Xra
 echo -e " ${MB}[3]${NC} ${YB}Trojan Menu${NC}"
 echo -e " ${MB}[4]${NC} ${YB}Shadowsocks Menu${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
-echo -e "                 ${WB}----- [ Utility ] -----${NC}                "
+echo -e "                 ${WB}----- [ Utilitas ] -----${NC}                "
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e " ${MB}[7]${NC} ${YB}Log Create Account${NC}  ${MB}[12]${NC} ${YB}DNS Setting${NC}"
 echo -e " ${MB}[8]${NC} ${YB}Speedtest${NC}           ${MB}[13]${NC} ${YB}Check DNS Status${NC}"
@@ -67,7 +67,7 @@ echo -e " ${MB}[10]${NC} ${YB}Cert Acme.sh${NC}"
 echo -e " ${MB}[11]${NC} ${YB}About Script${NC}"
 echo -e "${BB}————————————————————————————————————————————————————————${NC}"
 echo -e ""
-read -p " Select Menu :  "  opt
+read -p " Pilih Menu :  "  opt
 echo -e ""
 case $opt in
 1) clear ; vmess ;;
@@ -77,7 +77,7 @@ case $opt in
 5) clear ; ss2022 ;;
 6) clear ; allxray ;;
 7) clear ; log-create ;;
-8) clear ; speedtest ; echo " " ; read -n 1 -s -r -p "Press any key to back on menu" ; menu ;;
+8) clear ; speedtest ; echo " " ; read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu" ; menu ;;
 9) clear ; dns ;;
 10) clear ; certxray ;;
 11) clear ; about ;;
@@ -86,10 +86,10 @@ case $opt in
 resolvectl status
 echo ""
 echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "Tekan tombol apa saja untuk kembali ke menu"
 echo ""
 echo ""
 menu ;;
 x) exit ;;
-*) echo -e "${YB}Wrong input${NC}" ; sleep 1 ; menu ;;
+*) echo -e "${YB}Kesalahan Penginputan${NC}" ; sleep 1 ; menu ;;
 esac
